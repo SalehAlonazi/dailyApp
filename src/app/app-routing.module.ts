@@ -12,7 +12,7 @@ const routes: Routes = [];
 })
 export class AppRoutingModule {
 
-  routes: Routes = [
+  routes = [
     { path: './login-page', component: LoginPageComponent },
     { path: './register-page', component: RegisterPageComponent },
   ];
