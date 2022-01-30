@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+* {
+  --main-color: #C8C6C6;
+  --secondary-color: #007678;
+  --thired-color: #619B98;
+  --accent-color: #C0FCF9;
+  font-family: 'Cairo',
+    sans-serif;
+}
