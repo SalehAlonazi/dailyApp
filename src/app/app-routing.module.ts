@@ -4,18 +4,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterPageComponent } from './components/register-page/register-page.component'
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
-
-  routes = [
-    { path: './login-page', component: LoginPageComponent },
-    { path: './register-page', component: RegisterPageComponent },
-  ];
-
 }
-
+export const componeT = [RegisterPageComponent, LoginPageComponent] 
