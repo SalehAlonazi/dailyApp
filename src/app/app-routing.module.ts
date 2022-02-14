@@ -3,10 +3,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterPageComponent } from './components/register-page/register-page.component'
+import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  { path: 'posts', component: PostsComponent },
 ];
 
 @NgModule({
