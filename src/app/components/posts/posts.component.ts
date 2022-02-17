@@ -31,17 +31,7 @@ export class PostsComponent implements OnInit {
     })
   }
 
-  today = new Date();
-  date = this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + this.today.getDate();
-  time = this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
-
-  hours = this.today.getHours();
-  minutes = this.today.getMinutes();
-
-
-
-  strTime = this.hours + ':' + this.minutes + ' ';
-
-  dateTime = this.date + ' ' + this.strTime;
+  d = new Date();
+  n = this.d.toLocaleString([], { hour12: true });
 
 }
