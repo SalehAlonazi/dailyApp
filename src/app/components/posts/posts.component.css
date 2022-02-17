@@ -38,5 +38,10 @@ button {
         /* background-color: #284B63;
         color: #DEE2E6; */
         display: inline;
-
+  }
+  .author{
+    display: flex;
+    width: inherit;
+    justify-content: space-between;
+    padding:8px;
   }

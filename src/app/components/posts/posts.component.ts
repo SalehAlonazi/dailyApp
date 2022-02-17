@@ -10,6 +10,16 @@ import { JSONPlaceholderService } from 'src/app/services/jsonplaceholder.service
 
 export class PostsComponent implements OnInit {
   data: Array<any>
+
+  /* Randomize array in-place using Durstenfeld shuffle algorithm */
+  shuffleArray(array: any[]) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
   constructor(private JosonData: JSONPlaceholderService) {
     this.data = new Array<any>();
   }
@@ -17,9 +27,21 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.JosonData.getData().subscribe((data: any) => {
       this.data = data;
+      this.shuffleArray(data)
     })
   }
 
+  today = new Date();
+  date = this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + this.today.getDate();
+  time = this.today.getHours() + ":" + this.today.getMinutes() + ":" + this.today.getSeconds();
 
+  hours = this.today.getHours();
+  minutes = this.today.getMinutes();
+
+
+
+  strTime = this.hours + ':' + this.minutes + ' ';
+
+  dateTime = this.date + ' ' + this.strTime;
 
 }
