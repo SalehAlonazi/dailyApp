@@ -45,3 +45,24 @@ button {
     justify-content: space-between;
     padding:8px;
   }
+  .id{
+    background-color: #004E64;
+    font-weight: 700;
+    color: white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 5px;
+  }
+  .time{
+    background-color: var(--main-color);
+    font-weight: 700;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 5px;
+}
