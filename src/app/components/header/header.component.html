@@ -1,17 +1,36 @@
 <header class="p-3">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="#" class="nav-link px-2 text-muted">Daily</a>
+      <a href="#" class="nav-link px-2 text-muted">Daily</a>
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a routerLink="posts" routerLinkActive="posts" class="nav-link px-2 text-white">Home</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">Search</a></li>
-        <li><a href="#" class="nav-link px-2 text-white">How Am I ?</a></li>
+        <li><a href="https://www.linkedin.com/in/saleh-alonazi/" class="nav-link px-2 text-white">How Am I ?</a></li>
       </ul>
-      <div class="text-end">
-        <button type="button" routerLink="login" routerLinkActive="login"
-          class="btn btn-outline-light me-2">Login</button>
-        <button type="button" routerLink="register" routerLinkActive="register" class="btn btn-primary">Sign-up</button>
-      </div>
+      <ng-container class="d-flex" *ngIf="authService.currentUser$ | async as user; else loginRegister">
+
+        <div (mouseenter)="dropdown=true" (mouseleave)="dropdown=false" class="text-end text-white"> more ?
+          <!-- <svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            class="bi bi-three-dots-vertical">
+            <path
+              d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+          </svg> -->
+          <div *ngIf="dropdown" class="dropdown">
+            <a class="dropdown-item" #dropItem href="#">Profile</a>
+            <a (click)="logout()" class="dropdown-item">LogOut</a>
+          </div>
+
+        </div>
+
+      </ng-container>
+      <ng-template #loginRegister>
+        <div class="text-end">
+          <button type="button" routerLink="login" routerLinkActive="login"
+            class="btn btn-outline-light me-2">Login</button>
+          <button type="button" routerLink="register" routerLinkActive="register"
+            class="btn btn-primary">Sign-up</button>
+        </div>
+      </ng-template>
+
     </div>
   </div>
 </header>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { HotToastService } from '@ngneat/hot-toast';
 import { AuthService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
     password: new FormControl('', [Validators.required])
   });
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private toast: HotToastService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,11 +33,16 @@ export class LoginPageComponent implements OnInit {
   submit() {
     if (!this.loginform.valid) {
       return;
+
     }
 
     const { email, password } = this.loginform.value;
-    this.authService.login(email, password).subscribe(() => {
-      this.router.navigate(['/home']);
+    this.authService.login(email, password).pipe(this.toast.observe({
+      success: 'Logged in successfully',
+      loading: 'Logging in...',
+      error: ({ message }) => `There was an error: ${message} `
+    })).subscribe(() => {
+      this.router.navigate(['/posts']);
     });
 
   }

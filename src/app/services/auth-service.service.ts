@@ -16,6 +16,14 @@ export class AuthService {
 
   constructor(private auth: Auth) { }
 
+  getUserID(a: Observable<any>) {
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        return console.log(user.uid);
+      }
+    });
+  }
   signUp(email: string, password: string): Observable<UserCredential> {
     return from(createUserWithEmailAndPassword(this.auth, email, password));
   }

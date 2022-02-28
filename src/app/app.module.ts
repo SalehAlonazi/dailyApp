@@ -7,11 +7,11 @@ import { AppRoutingModule, componeT } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PostsComponent } from './components/posts/posts.component';
-import { } from '@angular/fire';
-import { } from '@angular/fire/firestore';
-import { } from '@angular/fire/storage';
+import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { UserComponent } from './components/user/user.component';
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     HeaderComponent,
     componeT,
     PostsComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     HttpClientModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-
+    ReactiveFormsModule,
+    HotToastModule.forRoot()
 
   ],
   providers: [],

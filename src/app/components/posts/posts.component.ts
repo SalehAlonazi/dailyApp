@@ -1,6 +1,8 @@
+import { getAuth } from '@angular/fire/auth';
+import { FormGroup, FormControl, MaxValidator, Validators } from '@angular/forms';
 import { Component, NgModule, OnInit } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { JSONPlaceholderService } from 'src/app/services/jsonplaceholder.service'
+import { AuthService } from 'src/app/services/auth-service.service'
 
 @Component({
   selector: 'app-posts',
@@ -10,6 +12,11 @@ import { JSONPlaceholderService } from 'src/app/services/jsonplaceholder.service
 
 export class PostsComponent implements OnInit {
   data: Array<any>
+  postform: boolean = false;
+  upost = new FormGroup({
+    title: new FormControl(),
+    body: new FormControl('', [Validators.maxLength(144)])
+  })
 
   /* Randomize array in-place using Durstenfeld shuffle algorithm */
   shuffleArray(array: any[]) {
@@ -20,14 +27,22 @@ export class PostsComponent implements OnInit {
       array[j] = temp;
     }
   }
-  constructor(private JosonData: JSONPlaceholderService) {
+  constructor(private JosonData: JSONPlaceholderService, public authService: AuthService) {
     this.data = new Array<any>();
+
   }
 
+
+  userPosted(title: any, body: any) {
+    const user = this.authService.getUserID
+    this.data.unshift({ title, body })
+    console.log(this.data)
+  }
   ngOnInit(): void {
     this.JosonData.getData().subscribe((data: any) => {
       this.data = data;
       this.shuffleArray(data)
+
     })
   }
 
