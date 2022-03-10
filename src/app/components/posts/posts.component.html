@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="card shadow-lg" *ngFor="let d of data">
-    <div class="card-body">
+    <div class="card-body" (click)="goToComment(d.userId)">
       <h5 class="card-title">{{d.title}}</h5>
       <p class="card-text">{{d.body}}</p>
     </div>

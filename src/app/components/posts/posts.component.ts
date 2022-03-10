@@ -45,7 +45,9 @@ export class PostsComponent implements OnInit {
 
     })
   }
+  goToComment(userid: any) {
 
+  }
   d = new Date();
   n = this.d.toLocaleString([], { hour12: true });
 
