@@ -1,0 +1,22 @@
+<div class="container d-flex justify-content-center mx-0">
+    <form [formGroup]="addComentForm" class="commentForm d-flex align-items-center flex-column">
+        <div>
+            <label class="form-label">Title</label>
+            <input #commentTitle formControlName="title" class="form-control">
+            <label class="form-label">Body</label>
+            <textarea #commentBody formControlName="body" type="text" class="form-control"></textarea>
+        </div>
+        <button type="button" (click)="onEnter(commentBody.value ,commentTitle.value)"
+            class="btn btn-primary my-2">Submit</button>
+    </form>
+</div>
+
+<div *ngFor="let d of data">
+    <div class="container d-flex justify-content-start" id="a">
+        <div class="card-body" routerLink="post" routerLinkActive="post">
+            <h5 class="card-title1">{{d.title}} </h5>
+            <p class="card-text">{{d.body}}</p>
+            <i><span>This Comment has been Submeted By The User With The Id: {{d.id}}</span></i>
+        </div>
+    </div>
+</div>

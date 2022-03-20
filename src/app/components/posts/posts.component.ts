@@ -3,6 +3,8 @@ import { FormGroup, FormControl, MaxValidator, Validators } from '@angular/forms
 import { Component, NgModule, OnInit } from '@angular/core';
 import { JSONPlaceholderService } from 'src/app/services/jsonplaceholder.service'
 import { AuthService } from 'src/app/services/auth-service.service'
+import { PostComponent } from '../post/post.component';
+
 
 @Component({
   selector: 'app-posts',
@@ -27,14 +29,13 @@ export class PostsComponent implements OnInit {
       array[j] = temp;
     }
   }
-  constructor(private JosonData: JSONPlaceholderService, public authService: AuthService) {
+  constructor(private JosonData: JSONPlaceholderService, public authService: AuthService, private comments: PostComponent) {
     this.data = new Array<any>();
 
   }
 
 
   userPosted(title: any, body: any) {
-    const user = this.authService.getUserID
     this.data.unshift({ title, body })
     console.log(this.data)
   }
@@ -45,9 +46,7 @@ export class PostsComponent implements OnInit {
 
     })
   }
-  goToComment(userid: any) {
 
-  }
   d = new Date();
   n = this.d.toLocaleString([], { hour12: true });
 

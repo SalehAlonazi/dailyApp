@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { HotToastModule } from '@ngneat/hot-toast';
-import { UserComponent } from './components/user/user.component';
+import { PostComponent } from './components/post/post.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { UserComponent } from './components/user/user.component';
     HeaderComponent,
     componeT,
     PostsComponent,
-    UserComponent,
+    PostComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { UserComponent } from './components/user/user.component';
     HotToastModule.forRoot()
 
   ],
-  providers: [],
+  providers: [PostComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

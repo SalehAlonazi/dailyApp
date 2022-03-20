@@ -1,0 +1,48 @@
+.card-body{
+    /* background-color: #e9ecef57; */
+    font-weight: bolder;
+    margin: 15px;
+    border-radius: 15px;
+    border: 0.5px outset #203c4e;
+    box-shadow: 5px 5px 15px rgb(0 0 0 / 40%);
+    width: 70%;
+}
+#a{
+    margin: 0;
+}
+span{
+    background-color: #004E64;
+    font-weight: 700;
+    color: white;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 5px;
+}
+
+.commentForm{
+    margin: 15px;
+    border-radius: 15px;
+    border: 1px outset #203c4e;
+    box-shadow: 5px 5px 15px rgb(0 0 0 / 40%);
+    padding: 15px;
+    width: 60%;
+    height: 20%;
+}
+form div{
+    margin: 0;
+    width: 100%;
+
+}
+div input{
+    width: 100%;
+}
+div button{
+    background-color: #004E64;
+    font-weight: 700;
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+}
